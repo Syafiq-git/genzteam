@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="fontawesome.css">
+    <link rel="stylesheet" href="genz.css">
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: #111;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .contact-container {
+            background-color: #000000;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            color: #fff;
+            animation: fadeIn 0.8s ease;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 16px 14px 44px;
+            background: rgba(255, 255, 255, 0.15);
+            border: none;
+            border-radius: 12px;
+            color: #fff;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #ddd;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.25);
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #fff;
+        }
+        
+        .form-group i {
+            position: absolute;
+            top: 50%;
+            left: 14px;
+            transform: translateY(-50%);
+            color: #fff;
+            opacity: 0.6;
+        }
+        
+        .btn-submit {
+            background: #ff6ec4;
+            background: linear-gradient(to right, #2721cd, #4adeff);
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 12px;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .btn-submit:hover {
+            background: linear-gradient(to right, #2721cd, #7873f5);
+        }
+        
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+        
+        .message.success {
+            color: #00ffb3;
+        }
+        
+        .message.error {
+            color: #ff5e5e;
+        }
+        
+        @media (max-width: 600px) {
+            .contact-container {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a2d9d6ad5c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header class="header-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <a href="index.html" class="logo">
+                            <img src="logos.png" alt="">
+                        </a>
+
+
+
+                        <ul class="nav">
+                            <li><a href="index.html" style="color:  white;">Home</a></li>
+                            <li><a href="about.html" style="color: white; text-decoration: none;" onmouseover="this.style.color='#045dea'" onmouseout="this.style.color='white'">About</a></li>
+                            <li><a href="contact.html" style="color: #045dea;">Contact</a></li>
+                            <li style="display: none;"><a href="profile.html">Profile <img src="profile-header.jpg" alt=""></a></li>
+                        </ul>
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="contact-container">
+        <h2>Hubungi Kami</h2>
+        <form id="contactForm">
+            <div class="form-group">
+                <label for="name">Nama</label>
+                <input type="text" id="name" name="name" placeholder="Masukkan nama lengkap" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan email aktif" required />
+            </div>
+            <div class="form-group">
+                <label for="message">Pesan</label>
+                <textarea id="message" name="message" placeholder="Tulis pesan Anda..." rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">Kirim Pesan</button>
+            <div class="message" id="formMessage"></div>
+        </form>
+    </div>
+
+    <script defer>
+        const form = document.getElementById("contactForm");
+        const formMessage = document.getElementById("formMessage");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            const name = form.name.value.trim();
+            const email = form.email.value.trim();
+            const message = form.message.value.trim();
+
+            if (!name || !email || !message) {
+                formMessage.textContent = "Semua bidang harus diisi!";
+                formMessage.className = "message error";
+                return;
+            }
+
+            formMessage.textContent = "Pesan Anda berhasil dikirim!";
+            formMessage.className = "message success";
+            form.reset();
+
+            setTimeout(() => {
+                formMessage.textContent = "";
+            }, 3000);
+        });
+    </script>
+    <script src="halah.js"></script>
+</body>
+
+</html>

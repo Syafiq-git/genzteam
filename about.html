@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tentang GEN-Z | WEB</title>
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/genz.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #111;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 960px;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+        
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #e0e0e0;
+        }
+        
+        .highlight {
+            color: #045dea;
+            font-weight: bold;
+        }
+        
+        .cards {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 40px;
+            gap: 20px;
+        }
+        
+        .card {
+            background-color: #ffffff10;
+            border-radius: 15px;
+            padding: 20px;
+            width: 260px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .card h3 {
+            color: #045dea;
+            margin-bottom: 10px;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .section-title {
+            margin-top: 60px;
+            font-size: 2em;
+            color: #fff;
+            border-bottom: 2px solid #045dea;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        
+        footer {
+            margin-top: 80px;
+            text-align: center;
+            padding: 30px 10px;
+            color: #aaa;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Tentang Kami</h1>
+        <p>
+            Kami adalah tim kreatif dari <span class="highlight">GEN-Z | WEB</span> yang berfokus menciptakan website interaktif berisi game seru, edukatif, dan kekinian. Kami ingin membantu semua orang <span class="highlight">mengusir rasa bosan</span>            dengan cara menyenangkan.
+        </p>
+
+        <div class="cards">
+            <div class="card">
+                <h3>Visi</h3>
+                <p>Menghadirkan hiburan berbasis web yang menyenangkan, positif, dan membangun kreativitas digital generasi muda.</p>
+            </div>
+            <div class="card">
+                <h3>Misi</h3>
+                <p>Mengembangkan game yang <span class="highlight">viral, ringan, dan cocok</span> dimainkan di waktu luang.</p>
+            </div>
+            <div class="card">
+                <h3>Nilai Kami</h3>
+                <p>Kreativitas, kerja tim, kualitas, dan fokus pada pengalaman pengguna.</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Game Populer</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Escape Highschool</h3>
+                <p>Game teka-teki lucu bertema sekolah dengan banyak ending rahasia.</p>
+            </div>
+            <div class="card">
+                <h3>Tap Tap Meme</h3>
+                <p>Game reaksi cepat dengan meme viral TikTok Gen Z!</p>
+            </div>
+            <div class="card">
+                <h3>Battle Cendol</h3>
+                <p>Game multiplayer lokal paling kocak, adu jualan cendol tercepat!</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">Tim Kami</h2>
+        <div class="cards">
+            <div class="card">
+                <h3>Syafiq</h3>
+                <p>Programmer utama. Suka ngoding tengah malam sambil nyemil mie.</p>
+            </div>
+            <div class="card">
+                <h3>Sayidina</h3>
+                <p>Desainer UI/UX. Spesialis warna ungu dan tombol satisfying.</p>
+            </div>
+            <div class="card">
+                <h3>Kenzie</h3>
+                <p>Penulis cerita game. Ide-idenya selalu unik dan ngakak.</p>
+            </div>
+            <div class="card">
+                <h3>Firza</h3>
+                <p>Master plot twist. Selalu bikin ending game yang bikin mikir semalaman!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 GEN-Z | WEB - Dibuat dengan semangat dan kreatifitas anak bangsa
+    </footer>
+
+    <script>
+        // Fade-in animasi kartu satu per satu
+        document.addEventListener("DOMContentLoaded", () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach((card, i) => {
+                setTimeout(() => {
+                    card.style.opacity = 1;
+                }, 300 + i * 200);
+            });
+        });
+    </script>
+
+</body>
+
+
+</html>
